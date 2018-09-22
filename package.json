@@ -1,0 +1,19 @@
+{
+  "name": "terminal-weather",
+  "version": "0.0.1",
+  "description": "A terminal app mede with node.js",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Georgge/terminal-weather.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Georgge/terminal-weather/issues"
+  },
+  "homepage": "https://github.com/Georgge/terminal-weather#readme"
+}
