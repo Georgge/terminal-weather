@@ -1,13 +1,7 @@
 const geocode = require('./config/keys');
+const argv = require('./config/yargs').argv;
 const colors = require('colors');
 const axios = require('axios');
-const argv = require('yargs').options({
-  address: {
-    alias: 'a',
-    desc: 'Address of the place to obtain climate',
-    demand: true
-  }
-}).argv;
 
 // https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyCKVJYZhCwrqFYQ8dxfmOrpSw38YcHi0C8
 const encodePlace = encodeURI(argv.address);
@@ -15,12 +9,16 @@ const uri = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeP
 
 axios.get(uri)
   .then( response => {
-    if (response.status !== 200) {
-      console.log(`Status: ${response.status}`.red);
+    const { status } = response;
+    const data = response.data.results[0];
+
+    if (status !== 200) {
+      console.log(`Status: ${status}`.red);
+      return;
     } else {
-      console.log(`Status: ${response.status}`.green);
+      console.log(`Status: ${status}`.green);
     }
 
-    console.log( JSON.stringify(response.data, undefined, 2));
+    console.log( data );
   })
   .catch( err => console.log(`ERROR: ${err}`));
