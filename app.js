@@ -1,4 +1,4 @@
-const geocode = require('./config/keys');
+const geocode = require('./config/keys').geocode;
 const argv = require('./config/yargs').argv;
 const place = require('./place/place');
 const colors = require('colors');
@@ -9,6 +9,10 @@ const uri = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeP
 
 place.getPlace(uri)
   .then( response => {
+    const { lat, lng } = response;
+    return place.getWeather(lat, lng);
+  })
+  .then( response => {
     console.log(response);
   })
-  .catch( err => console.log(err) );
+  .catch( err => console.log(err.message) );
