@@ -42,9 +42,9 @@ const getWeather = async( lat, lng ) => {
     console.log(`Current Temp: ${temp}°C`.green);
   }
   return request.data;
-}
+};
 
 module.exports = {
   getPlace,
   getWeather,
-}
+};
