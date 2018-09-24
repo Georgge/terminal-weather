@@ -15,8 +15,9 @@ place.getPlace(uri)
   })
   .then((response) => {
     const { weather } = response;
-    console.log(`Weather: ${weather[0].main}`.yellow);
-    drawer.draw();
+    //console.log(weather);
+    console.log(`Weather: ${weather[0].description}`.yellow);
+    drawer.draw(weather);
   })
   .catch((err) => {
     console.log(err.message);

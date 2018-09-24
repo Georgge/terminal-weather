@@ -18,7 +18,7 @@ const getPlace = async( uri ) => {
 
   const { formatted_address, geometry: { location } } = response.data.results[0];
 
-  console.log(`Wheather at: ${formatted_address}`.cyan);
+  console.log(`Place: ${formatted_address}`.cyan);
   
   return {
     address: formatted_address,
