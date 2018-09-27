@@ -2,7 +2,7 @@ const spinner = require('../config/spinner').spinner;
 const ow = require('../config/keys').openWeather;
 const axios = require('axios');
 
-const getPlace = async( uri ) => {
+const getPlace = async (uri) => {
   spinner.start();
 
   const response = await axios.get(uri);
@@ -19,22 +19,22 @@ const getPlace = async( uri ) => {
   const { formatted_address, geometry: { location } } = response.data.results[0];
 
   console.log(`Place: ${formatted_address}`.cyan);
-  
+
   return {
     address: formatted_address,
     lat: location.lat,
     lng: location.lng,
   };
-}
+};
 
-const getWeather = async( lat, lng ) => {
+const getWeather = async (lat, lng) => {
   spinner.setSpinnerTitle('Loking for weather');
   spinner.start();
   const uri = `${ow.BASE_URI}?lat=${lat}&lon=${lng}&units=${ow.UNITS}&appid=${ow.KEY}`;
   const request = await axios.get(uri);
   const { cod, main: { temp } } = request.data;
 
-  if ( cod !== 200 ) {
+  if (cod !== 200) {
     spinner.stop(true);
     throw new Error(`Status: ${cod}`.bgRed.white);
   } else {

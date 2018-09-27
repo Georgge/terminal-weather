@@ -1,10 +1,10 @@
 const CONDITION_IMAGE = {
   CLEAR_SKY: {
     DAY: './assets/sun.jpg',
-    NIGHT: './assets/moon.jpg',
+    NIGHT: './assets/night.jpg',
   },
   FEW_CLOUDS: {
-    DAY: '',
+    DAY: './assets/few_day.jpg',
     NIGHT: './assets/few_night.jpg',
   },
   SCATTERED_CLOUDS: './assets/scattered.jpg',
@@ -15,11 +15,15 @@ const CONDITION_IMAGE = {
     NIGHT: './assets/rain_night.jpg',
   },
   THUNDERSTORM: './assets/thunderstorm.jpg',
-  SNOW: 'snow',
-  MIST: 'mist',
+  SNOW: './assets/snow.jpg',
+  MIST: './assets/mist.jpg',
+  CONFUSED: './assets/confused.jpg',
 };
 
 const CONDITION_GROUP = {
+  CONFUSED: {
+    FILE: CONDITION_IMAGE.CONFUSED,
+  },
   CLOUDS: {
     MEANING: 'Clouds',
     FEW_CLOUDS: {
@@ -52,9 +56,11 @@ const CONDITION_GROUP = {
     FILE: CONDITION_IMAGE.RAIN,
   },
   SNOW: {
+    MEANING: 'Snow',
     FILE: CONDITION_IMAGE.SNOW,
   },
   ATMOSPHERE: {
+    MEANING: 'Atmosphere',
     FILE: CONDITION_IMAGE.MIST,
   },
   CLEAR: {

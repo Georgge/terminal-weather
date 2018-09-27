@@ -15,7 +15,6 @@ place.getPlace(uri)
   })
   .then((response) => {
     const { weather } = response;
-    //console.log(weather);
     console.log(`Weather: ${weather[0].description}`.yellow);
     drawer.draw(weather);
   })
